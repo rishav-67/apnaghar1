@@ -1,0 +1,32 @@
+{% extends 'ghar_dikhao/base.html' %}
+{% load static %}
+
+{% block content %}
+    
+    <center><h3>Signup Page</h3></center>
+    {% if messages %}
+        
+        {% for mes in messages %}
+           <p  class="alert alert-{{mes.tags}} mb-5">{{mes}}</p>
+        {% endfor %}
+    {% endif %}
+    <form action="" method="POST"  novalidate >
+    {% csrf_token %}
+    {% for fm in form %}
+        <div class="form-class">
+        {{fm.label_tag}} {{fm}} <span class="errorlist">{{fm.errors|striptags}}</span>
+        
+        </div>
+    {% endfor %}
+    <form action="" method="POST"  novalidate >
+    {% csrf_token %}
+    {% for fm in formnew %}
+        <div class="form-class">
+        {{fm.label_tag}} {{fm}} <span class="errorlist">{{fm.errors|striptags}}</span>
+        
+        </div>
+    {% endfor %}
+   <button type="sumbit" class="btn btn-primary">sum</button>
+    </form>
+    
+{% endblock content %}

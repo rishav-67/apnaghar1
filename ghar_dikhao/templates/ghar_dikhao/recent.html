@@ -1,0 +1,36 @@
+{% extends 'ghar_dikhao/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="row">
+
+  {% for fm in form %} 
+  
+  <div class="col-md-4 fgk">
+    <div class="card" style="width: 18rem">
+      <img
+        class="card-img-top"
+        src="{{fm.img.url}}"
+        alt="Card image cap"
+        width="300"
+        height="400"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{fm.title}}</h5>
+        <h5 class="card-title">{{fm.user}}</h5>
+        <p class="card-text">{{fm.description}}</p>
+        <p class="card-text">{{fm.category}}</p>
+         <p class="card-text">{{fm.date}}</p>
+         <p class="card-text">{{fm.view_count}}</p>
+        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary">DESCRIPTION</a>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+    
+</div>
+{% endblock content%}

@@ -1,0 +1,105 @@
+{% extends 'ghar_dikhao/base.html' %} {% load static %}
+<link rel="stylesheet" type="text/css" />
+<link href="{% static 'ghar_dikhao/css/bootstrap.css' %}" rel="stylesheet">
+{% block content %}
+<h1>information block</h1>
+<!{{form.id}} {{form.title}} {{form.description}} {{form.category}} {{form.user.extenduser.phone}}
+    {{form.user.extenduser.city}} {{form.user.extenduser.state}} {{form.date}} <h5 class="card-title" {{form.title}}</h5
+    <p class="card-text" {{form.description}}/p {{form.state}}/p {{form.district}}</p {{form.bedroom}}</p
+    {{form.bathroom}}</p {{form.balcony}}</p {{form.cost}}</p {{form.user}}/h5>
+
+    <div class="row">
+        <div class="col-md-5">
+            <img src="{{form.img.url}}" alt="" width="500" height="365" class="infoimg" />
+            <h2 class="infoh">{{form.category|upper}}   SPECIFICATION:</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="info1">
+                        <h4>state:-</h4>
+                        <h4>{{form.state}}</h4>
+                    </div>
+                    <div class="info1">
+                        <h4>district:-</h4>
+                        <h4>{{form.district}}</h4>
+                    </div>
+                    <div class="info1">
+                        <h4>category:-</h4>
+                        <h4>{{form.category}}</h4>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="info12">
+                        <h4>bedroom:-</h4>
+                        <h4>{{form.bedroom}}</h4>
+                    </div>
+                    <div class="info12">
+                        <h4>balcony:-</h4>
+                        <h4>{{form.balcony}}</h4>
+                    </div>
+                    <div class="info12">
+                        <h4>bathroom:-</h4>
+                        <h4>{{form.bathroom}}</h4>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-7">
+            <h3>details</h3>
+            <span>
+                <b>
+                    <h1>{{form.title}}</h1>
+                </b>
+            </span>
+            <p>cost:- $ {{form.cost}}></p>
+            <p>view by:-{{form.view_count}}</p>
+            <p>published in:-{{form.date}}</p>
+
+            <hr />
+            <h2>{{form.category|upper}} ADDRESS:</h2>
+            <div class="info">
+                <h5>state:- </h5>
+                <h5>{{form.state}}<h5>
+            </div>
+            <div class="info">
+                <h5>district:- </h5>
+                <h5>{{form.district}}<h5>
+            </div>
+            <div class="info">
+                <h5>category:- </h5>
+                <h5>{{form.category}}<h5>
+            </div>
+
+            <hr />
+            <h2>CONTACT BUILDER:</h2>
+            <div class="info">
+                <h5>Name:- </h5>
+                <h5>{{form.user}}<h5>
+            </div>
+            <div class="info">
+                <h5>phone:- </h5>
+                <h5>{{form.user.extenduser.phone}}<h5>
+            </div>
+            <div class="info">
+                <h5>city:- </h5>
+                <h5>{{form.user.extenduser.city}}<h5>
+            </div>
+            <div class="info">
+                <h5>state:- </h5>
+                <h5>{{form.user.extenduser.state}}<h5>
+            </div>
+        </div>
+        <br>
+        <div class="jumbotron kjp">
+            <h1 class="display-4">DESCRIPTION</h1>
+            <p class="lead">{{form.description}}</p>
+            <hr class="my-4">
+
+        </div>
+        
+
+    </div>
+    {% endblock content%}

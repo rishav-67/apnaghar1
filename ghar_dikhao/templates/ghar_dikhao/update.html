@@ -1,0 +1,37 @@
+{% extends 'ghar_dikhao/base.html' %}
+{% load static %}
+<link href="{% static 'ghar_dikhao/css/style.css' %}" rel="stylesheet">
+{% block content %}
+    
+    <center><h3>UpdatePage</h3></center>
+    <!{{request.user}}
+    x:-{{request.user.email}}
+    y:-{{request.user.city}}
+    z:-{{request.user.phone}}
+    x:-{{user.extenduser.phone}}
+    y:-{{user.extenduser.city}}
+    z:-{{user.extenduser.state}}
+    x:-{{request.user.id}}
+    y:-{{user.extenduser.id}}>
+    
+    {{request.user}}
+    {% if messages %}
+        
+        {% for mes in messages %}
+           <p  class="alert alert-{{mes.tags}} mb-5">{{mes}}</p>
+        {% endfor %}
+    {% endif %}
+    <form action="" method="POST"  novalidate enctype="multipart/form-data" >
+    {% csrf_token %}
+    {% for fm in form %}
+            
+        <div class="form-class">
+        {{fm.label_tag}} {{fm}} <span class="errorlist">{{fm.errors|striptags}}</span>
+        
+        </div>
+    {% endfor %}
+   <button type="sumbit" class="btn btn-primary">sum</button>
+    </form>
+    
+    
+{% endblock content %}

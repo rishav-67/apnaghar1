@@ -1,0 +1,58 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+    <img src="{% static 'ghar_dikhao/images/logo.jpg' %}"  style="width: 8em; height:8em;" class="d-inline-block align-top" alt="bye">
+    
+  </a>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'iskahome' %}">HOME</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        
+        
+        {% if request.user.is_authenticated %} 
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'iskaad' %}">YOUR advertsiment</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="{% url 'iskaadd' %}">advertsiment</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'iskaabout' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'iskacontact' %}">Contact</a>
+        </li>
+        
+        
+       
+        
+        {% if request.user.is_authenticated %} 
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'iskalogout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'iskasignup' %}">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'iskalogin' %}">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,25 @@
+{% extends 'ghar_dikhao/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+    <h3>Login Page</h3>
+    {% if messages %}
+        
+        {% for mes in messages %}
+           <p  class="alert alert-{{mes.tags}} mb-5">{{mes}}</p>
+        {% endfor %}
+    {% endif %}
+    <form action=""method="POST">
+    {% csrf_token %}
+    {% for fm in form %}
+        <div class="form-class">
+        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}
+        </div>
+        
+    {% endfor %}
+    
+     <button type="sumbit" class="btn btn-primary">sum</button>
+    </form>
+    </div>
+
+{% endblock content %}

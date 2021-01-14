@@ -1,0 +1,16 @@
+{% extends 'ghar_dikhao/base.html' %} {% load static %} {% block content %}
+
+<form action="{% url 'iskadelete' form %}">
+  {% csrf_token %}
+  <button class="btn btn-danger my-2 my-sm-0" type="submit">
+   confrm DELETE
+  </button>
+</form>
+<form action="{% url 'iskaad' %}">
+  {% csrf_token %}
+  <button class="btn btn-success my-2 my-sm-0" type="submit">
+    back
+  </button>
+</form>
+
+{% endblock content%}
