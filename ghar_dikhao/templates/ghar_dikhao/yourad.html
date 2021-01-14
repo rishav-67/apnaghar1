@@ -10,14 +10,14 @@
         {% endfor %}
     <div class="row">
         {% for fm  in obj %}
-        <div class="col-md-4 fgk">
-            <div class="card" style="width: 18rem;">
+        <div class="col-md-12 col-lg-4 col-sm-3 fgk">
+            <div class="card" style="width: 100%">
                 <img class="card-img-top" src="{{fm.img.url}}" alt="Card image cap" width=300 height=400>
                 <div class="card-body">
-                    <h5 class="card-title">{{fm.title}}</h5>
-                    <h5 class="card-title">{{fm.user}}</h5>
-                    <p class="card-text">{{fm.description}}</p>
-                    <p class="card-text">{{fm.id}}</p>
+                    <h5 class="card-title myText">{{fm.title}}</h5>
+                    <h5 class="card-title myText">{{fm.user}}</h5>
+                    <p class="card-text myText">{{fm.description}}</p>
+                    <p class="card-text myText">{{fm.id}}</p>
                     <form action="{% url 'iskadeleteconfirm' fm.id %}">
                     {% csrf_token %}
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">DELETE
@@ -38,5 +38,4 @@
   </div>
 </div>
    
-
 {% endblock content%}

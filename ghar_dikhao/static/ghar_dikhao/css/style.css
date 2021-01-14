@@ -79,3 +79,19 @@ h3{
 .kjp{
     background-color: rgb(152, 160, 163);
 }
+.myText
+{
+    font-size: 1vw;
+    font-weight: bold;
+}
+.ll{
+    float: left;
+    width: 10%;
+    padding: 0px 10px;
+}
+@media only screen and (max-width: 600px) {
+
+    .myText{
+        color: rgb(17, 50, 235);
+    }
+}

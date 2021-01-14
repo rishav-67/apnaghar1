@@ -29,8 +29,8 @@
 <div class="row">
     <h1><center>house</center></h1>
   {% for fm in gk.formhouse %} {% if forloop.counter < 4 %}
-  <div class="col-md-4 fgk">
-    <div class="card" style="width: 18rem">
+  <div class="col-md-12 col-lg-4 col-sm-3 fgk">
+    <div class="card">
       <img
         class="card-img-top"
         src="{{fm.img.url}}"
@@ -39,12 +39,12 @@
         height="400"
       />
       <div class="card-body">
-        <h5 class="card-title">{{fm.title}}</h5>
-        <h5 class="card-title">{{fm.user}}</h5>
-        <p class="card-text">{{fm.description}}</p>
-        <p class="card-text">{{fm.category}}</p>
-        <p class="card-text">{{fm.view_count}}</p>
-        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary">DESCRIPTION</a>
+        <h5 class="card-title myText">{{fm.title}}</h5>
+        <h5 class="card-title myText">{{fm.user}}</h5>
+        <p class="card-text myText">{{fm.description}}</p>
+        <p class="card-text myText">{{fm.category}}</p>
+        <p class="card-text myText">{{fm.view_count}}</p>
+        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary w3-button w3-black ll">DES</a>
       </div>
     </div>
   </div>
@@ -61,8 +61,8 @@
 <div class="row">
 <h1><center>apartment</center></h1>
   {% for fm in gk.formapartment %} {% if forloop.counter < 4 %}
-  <div class="col-md-4 fgk">
-    <div class="card" style="width: 18rem">
+  <div class="col-md-12 col-lg-4 col-sm-3 fgk">
+    <div class="card" style="width: 100%">
       <img
         class="card-img-top"
         src="{{fm.img.url}}"
@@ -71,12 +71,12 @@
         height="400"
       />
       <div class="card-body">
-        <h5 class="card-title">{{fm.title}}</h5>
-        <h5 class="card-title">{{fm.user}}</h5>
-        <p class="card-text">{{fm.description}}</p>
-        <p class="card-text">{{fm.category}}</p>
-        <p class="card-text">{{fm.view_count}}</p>
-        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary">DESCRIPTION</a>
+        <h5 class="card-title myText">{{fm.title}}</h5>
+        <h5 class="card-title myText">{{fm.user}}</h5>
+        <p class="card-text myText">{{fm.description}}</p>
+        <p class="card-text myText">{{fm.category}}</p>
+        <p class="card-text myText">{{fm.view_count}}</p>
+        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
       </div>
     </div>
   </div>
@@ -92,8 +92,8 @@
 <div class="row">
 <h1><center>banglow</center></h1>
   {% for fm in gk.formbanglow %} {% if forloop.counter < 4 %}
-  <div class="col-md-4 fgk">
-    <div class="card" style="width: 18rem">
+  <div class="col-md-12 col-lg-4 col-sm-3 fgk">
+    <div class="card" style="width: 100%">
       <img
         class="card-img-top"
         src="{{fm.img.url}}"
@@ -102,12 +102,12 @@
         height="400"
       />
       <div class="card-body">
-        <h5 class="card-title">{{fm.title}}</h5>
-        <h5 class="card-title">{{fm.user}}</h5>
-        <p class="card-text">{{fm.description}}</p>
-        <p class="card-text">{{fm.category}}</p>
-        <p class="card-text">{{fm.view_count}}</p>
-        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary">DESCRIPTION</a>
+        <h5 class="card-title myText">{{fm.title}}</h5>
+        <h5 class="card-title myText">{{fm.user}}</h5>
+        <p class="card-text myText">{{fm.description}}</p>
+        <p class="card-text myText">{{fm.category}}</p>
+        <p class="card-text myText">{{fm.view_count}}</p>
+        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
       </div>
     </div>
   </div>
