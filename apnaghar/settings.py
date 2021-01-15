@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '_$)@5!r$d)^n&r4^&f82=@s4-jdgwk4wr+dm0x&+x@m%4(9ig1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*','apnagharhousing.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['*','apnagharhousing.herokuapp.com','127.0.0.1','apnagharhome']
 
 
 # Application definition
