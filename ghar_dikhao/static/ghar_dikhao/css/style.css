@@ -95,4 +95,8 @@ h3{
     .myText{
         color: rgb(17, 50, 235);
     }
+     img{
+        max-height: 100px;
+        height: 100%;
+    }
 }
