@@ -17,7 +17,7 @@ def home(request):
     gk={}
     
     
-    if formhouse:
+    if bool(formhouse):
         if request.method=="POST":
             form1=request.POST["search"]
             obj=advertisment.objects.filter(title__icontains=form1)
@@ -29,7 +29,7 @@ def home(request):
                 
         else:
             gk.update({'formhouse':formhouse})
-    if formapartment:
+    if bool(formapartment):
         if request.method=="POST":
             form1=request.POST["search"]
             obj=advertisment.objects.filter(title__icontains=form1)
@@ -41,7 +41,7 @@ def home(request):
         else:
              gk.update({'formapartment':formapartment})
 
-    if formbanglow:
+    if bool(formbanglow):
         if request.method=="POST":
             form1=request.POST["search"]
             obj=advertisment.objects.filter(title__icontains=form1)
