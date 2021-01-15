@@ -1,1 +1,1 @@
-web: gunicorn apnaghar.wsgi --log.file--
+web: gunicorn apnaghar.wsgi 
