@@ -19,8 +19,8 @@
       <div class="card-body">
         <p><span><b>COST:-</b><b id="ji"> ₹{{fm.cost}}</b></span></p>
         <p><span><b>State:-</b><b id="ji">{{fm.state|upper}}</b></span></p>
-        <p><span><b>Constructor:-</b><b id="ji">{{fm.user}}</b></span></p>
-        <p><span><b>Seen by:-</b><b id="ji">{{fm.user.extenduser.first_name}} {{fm.user.extenduser.last_name}}</b></span></p>
+        <p><span><b>Constructor:-</b><b id="ji">{{fm.user.extenduser.first_name}} {{fm.user.extenduser.last_name}}</b></span></p>
+        <p><span><b>Seen by:-</b><b id="ji">{{fm.view_count}}</b></span></p>
         <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
         <form action="{% url 'iskadeleteconfirm' fm.id %}">
             {% csrf_token %}
