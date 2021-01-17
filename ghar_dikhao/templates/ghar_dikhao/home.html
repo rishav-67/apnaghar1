@@ -1,123 +1,103 @@
 {% extends 'ghar_dikhao/base.html' %} {% load static %} {% block content %}
 
 <div class="container">
-  <h3>Login Page</h3>
+  <h3>Home Page</h3>
+  
   {{x}}
   <nav class="navbar navbar-light bg-light">
     <form class="form-inline" method="POST" novalidate>
       {% csrf_token %}
-      <input
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-        name="search"
-      />
+      <input class="form-control mr-sm-2" type="search" placeholder="Search District" aria-label="Search" name="search" />
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
         Search
       </button>
     </form>
   </nav>
-  
+
 </div>
 {% if messages %} {% for mes in messages %}
-{% if forloop.counter < 2 %}
-<p class="alert alert-{{mes.tags}} mb-5">{{mes}}</p>
-{% endif %}
-{% endfor %} {% endif %}
+{% if forloop.counter < 2 %} <p class="alert alert-{{mes.tags}} mb-5">{{mes}}</p>
+  {% endif %}
+  {% endfor %} {% endif %}
 
-<div class="row">
-    <h1><center>house</center></h1>
-  {% for fm in gk.formhouse %} {% if forloop.counter < 4 %}
-  <div class="col-md-12 col-lg-4 col-sm-3 fgk">
-    <div class="card">
-      <img
-        class="card-img-top"
-        src="{{fm.img.url}}"
-        alt="Card image cap"
-        width="300"
-        height="400"
-      />
-      <div class="card-body">
-        <h5 class="card-title myText">{{fm.title}}</h5>
-        <h5 class="card-title myText">{{fm.user}}</h5>
-        <p class="card-text myText">{{fm.description}}</p>
-        <p class="card-text myText">{{fm.category}}</p>
-        <p class="card-text myText">{{fm.view_count}}</p>
-        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary w3-button w3-black ll">DES</a>
+  <div class="row">
+    <h1>
+      <center>House</center>
+    </h1>
+    {% for fm in gk.formhouse %} {% if forloop.counter < 4 %} <div class="col-md-12 col-lg-4 col-sm-3 fgk">
+      <div class="card" style="width: 100%">
+        <img class="card-img-top" src="{{fm.img.url}}" alt="Card image cap" width="300" height="400" />
+        <div class="card-body">
+          <p><span><b>COST:-</b><b id="ji"> ₹{{fm.cost}}</b></span></p>
+          <p><span><b>State:-</b><b id="ji">{{fm.state|upper}}</b></span></p>
+          <p><span><b>Constructor:-</b><b id="ji">{{fm.user.extenduser.first_name}} {{fm.user.extenduser.last_name}}</b></span></p>
+          <p><span><b>Seen by:-</b><b id="ji">{{fm.view_count}}</b></span></p>
+          
+          <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
+        </div>
       </div>
-    </div>
   </div>
 
   {% endif %} {% endfor %}
-    <form action="{% url 'iskashowselecthouse' %}">
+  <form action="{% url 'iskashowselecthouse' %}">
     {% csrf_token %}
     <center><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Show More House..</center>
-      
+
     </button>
   </form>
-</div>
-
-<div class="row">
-<h1><center>apartment</center></h1>
-  {% for fm in gk.formapartment %} {% if forloop.counter < 4 %}
-  <div class="col-md-12 col-lg-4 col-sm-3 fgk">
-    <div class="card" style="width: 100%">
-      <img
-        class="card-img-top"
-        src="{{fm.img.url}}"
-        alt="Card image cap"
-        width="300"
-        height="400"
-      />
-      <div class="card-body">
-        <h5 class="card-title myText">{{fm.title}}</h5>
-        <h5 class="card-title myText">{{fm.user}}</h5>
-        <p class="card-text myText">{{fm.description}}</p>
-        <p class="card-text myText">{{fm.category}}</p>
-        <p class="card-text myText">{{fm.view_count}}</p>
-        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
-      </div>
-    </div>
   </div>
+
+  <div class="row">
+    <h1>
+      <center>Apartment</center>
+    </h1>
+    {% for fm in gk.formapartment %} {% if forloop.counter < 4 %} <div class="col-md-12 col-lg-4 col-sm-3 fgk">
+      <div class="card" style="width: 100%">
+        <img class="card-img-top" src="{{fm.img.url}}" alt="Card image cap" width="300" height="400" />
+        <div class="card-body">
+          <p><span><b>COST:-</b><b id="ji"> ₹{{fm.cost}}</b></span></p>
+          <p><span><b>State:-</b><b id="ji">{{fm.state|upper}}</b></span></p>
+          <p><span><b>Constructor:-</b><b id="ji">{{fm.user.extenduser.first_name}} {{fm.user.extenduser.last_name}}</b></span></p>
+          <p><span><b>Seen by:-</b><b id="ji">{{fm.view_count}}</b></span></p>
+          
+          <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
+        </div>
+      </div>
+  </div>
+
   {% endif %} {% endfor %}
   <form action="{% url 'iskashowselectapartment' %}">
     {% csrf_token %}
     <center><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Show More Apartment..</center>
-      
+
     </button>
   </form>
-</div>
+  </div>
 
-<div class="row">
-<h1><center>banglow</center></h1>
-  {% for fm in gk.formbanglow %} {% if forloop.counter < 4 %}
-  <div class="col-md-12 col-lg-4 col-sm-3 fgk">
-    <div class="card" style="width: 100%">
-      <img
-        class="card-img-top"
-        src="{{fm.img.url}}"
-        alt="Card image cap"
-        width="300"
-        height="400"
-      />
-      <div class="card-body">
-        <h5 class="card-title myText">{{fm.title}}</h5>
-        <h5 class="card-title myText">{{fm.user}}</h5>
-        <p class="card-text myText">{{fm.description}}</p>
-        <p class="card-text myText">{{fm.category}}</p>
-        <p class="card-text myText">{{fm.view_count}}</p>
-        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
+  <div class="row">
+    <h1>
+      <center>Banglow</center>
+    </h1>
+    {% for fm in gk.formbanglow %} {% if forloop.counter < 4 %} <div class="col-md-12 col-lg-4 col-sm-3 fgk">
+      <div class="card" style="width: 100%">
+        <img class="card-img-top" src="{{fm.img.url}}" alt="Card image cap" width="300" height="400" />
+        <div class="card-body">
+          <p><span><b>COST:-</b><b id="ji"> ₹{{fm.cost}}</b></span></p>
+          <p><span><b>State:-</b><b id="ji">{{fm.state|upper}}</b></span></p>
+          <p><span><b>Constructor:-</b><b id="ji">{{fm.user.extenduser.first_name}} {{fm.user.extenduser.last_name}}</b></span></p>
+          <p><span><b>Seen by:-</b><b id="ji">{{fm.view_count}}</b></span></p>
+          
+          <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
+        </div>
       </div>
-    </div>
   </div>
   {% endif %} {% endfor %}
   <form action="{% url 'iskashowselectbanglow' %}">
     {% csrf_token %}
     <center><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Show More Banglow..</center>
-      
+
     </button>
   </form>
-</div>
+  </div>
 
-{% endblock content%}
+  {% endblock content%}
