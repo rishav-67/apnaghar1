@@ -6,8 +6,8 @@ class user_signupk(UserCreationForm):
     username= forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'RISHAV'}))
     #phone= forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': '7667805324'}))
     #email = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'rishavranjan700@gmail.com'}))
-    password1=forms.CharField(label='psfirsebtao',widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'ENTER PASSWORD'}))
-    password2=forms.CharField(label='passfirsebtao',widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'RENTER PASSWORD'}))
+    password1=forms.CharField(label='ENTER PASSWORD',widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'ENTER PASSWORD'}))
+    password2=forms.CharFieldlabel='CONFIRM PASSWORD',widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'RENTER PASSWORD'}))
     class Meta:
         model = User
         fields = ['username','password1','password2']
@@ -27,7 +27,7 @@ class userprofile(forms.ModelForm):
 
 class user_logink(AuthenticationForm):
     username=UsernameField(widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'RISHAV77'}))
-    password=forms.CharField(label="btao Password",widget=forms.PasswordInput(attrs={'class': "form-control" ,'placeholder': 'password'}))
+    password=forms.CharField(label="Password",widget=forms.PasswordInput(attrs={'class': "form-control" ,'placeholder': 'password'}))
 class shows(forms.ModelForm):
     title= forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control ti",'placeholder': 'title'}))
     description = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control de",'placeholder':'description'}))
