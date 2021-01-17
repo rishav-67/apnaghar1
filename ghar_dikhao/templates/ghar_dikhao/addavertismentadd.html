@@ -3,7 +3,7 @@
 <link href="{% static 'ghar_dikhao/css/style.css' %}" rel="stylesheet">
 {% block content %}
     
-    <center><h3>Signup Page</h3></center>
+    <center><h3>Add Advertisment Page</h3></center>
     <!{{request.user}}
     x:-{{request.user.email}}
     y:-{{request.user.city}}
@@ -14,7 +14,6 @@
     x:-{{request.user.id}}
     y:-{{user.extenduser.id}}>
     
-    {{request.user}}
     {% if messages %}
         
         {% for mes in messages %}
@@ -30,7 +29,8 @@
         
         </div>
     {% endfor %}
-   <button type="sumbit" class="btn btn-primary">sum</button>
+    <br><br>
+   <center><button type="sumbit" class="btn btn-primary"><i class="fa fa-check-circle" aria-hidden="true"></i>SUMBIT ADVERTISMENT</button></center>
     </form>
     
     
