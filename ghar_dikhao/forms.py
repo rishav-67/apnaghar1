@@ -7,7 +7,7 @@ class user_signupk(UserCreationForm):
     #phone= forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': '7667805324'}))
     #email = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'rishavranjan700@gmail.com'}))
     password1=forms.CharField(label='ENTER PASSWORD',widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'ENTER PASSWORD'}))
-    password2=forms.CharFieldlabel='CONFIRM PASSWORD',widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'RENTER PASSWORD'}))
+    password2=forms.CharField(label='CONFIRM PASSWORD',widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'RENTER PASSWORD'}))
     class Meta:
         model = User
         fields = ['username','password1','password2']
