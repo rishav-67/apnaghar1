@@ -5,7 +5,7 @@ from .forms import user_signupk,user_logink
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .forms import shows,contactshows,userprofile
-from .models import advertisment,User
+from .models import advertisment,User,extenduser
 import random
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -20,7 +20,7 @@ def home(request):
     if bool(formhouse):
         if request.method=="POST":
             form1=request.POST["search"]
-            obj=advertisment.objects.filter(title__icontains=form1)
+            obj=advertisment.objects.filter(district__icontains=form1)
             if obj:
                 return render(request,'ghar_dikhao/seachshow.html',{'obj':obj})
             else:
@@ -32,7 +32,7 @@ def home(request):
     if bool(formapartment):
         if request.method=="POST":
             form1=request.POST["search"]
-            obj=advertisment.objects.filter(title__icontains=form1)
+            obj=advertisment.objects.filter(district__icontains=form1)
             if obj:
                 return render(request,'ghar_dikhao/seachshow.html',{'obj':obj})
             else:
@@ -44,7 +44,7 @@ def home(request):
     if bool(formbanglow):
         if request.method=="POST":
             form1=request.POST["search"]
-            obj=advertisment.objects.filter(title__icontains=form1)
+            obj=advertisment.objects.filter(district__icontains=form1)
             if obj:
                 return render(request,'ghar_dikhao/seachshow.html',{'obj':obj})
             else:
@@ -223,3 +223,4 @@ def information(request,check):
 def delete_confirm(request,check):
     form=check
     return render(request,'ghar_dikhao/delete_confirm.html',{'form':form})
+
