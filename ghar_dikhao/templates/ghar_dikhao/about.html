@@ -1,10 +1,43 @@
 {% extends 'ghar_dikhao/base.html' %}
 {% load static %}
+{% block style %}
+<style>
+    .kjl{
+        color:brown;
+        
+    }
+    .abouk{
+        padding-top: 5%;
+    }
+    .op{
+        padding-left:15%
+    }
+</style>
+{% endblock style %}
 
 {% block content %}
     <h1>about</h1>
     <h3>WE know There is No place Like home</h3>
 
     <h2>but try our services<span style='font-size:100px;'>&#128521;</span></h2>
+    <div class="row">
+        <div class="col-md-5 col-sm-12 ic">
+            <img src="{% static 'ghar_dikhao/images/Rd_Park_Garden 1.jpg' %}"   width="500" height="365" class="infoimg" / style="width:100%" alt="bye">
+        </div>
+        <div class="col-md-7  col-sm-12 ic" >
+            <p class="kjl"> <b>We Know The Importance of Home</b></p>
+            <p class="kjl"> <b>Launched in 1999, gharapna.herokuapp.com, India’s oldest property portal, deals with every aspect of the consumers’ needs . It is an online forum where buyers, sellers and brokers/agents can exchange information about housing and shelter. At gharapna.herokuapp.com,you can get loans for your dream house </b></p>
+        </div>
+    </div>
+
+    <div class="row abouk">
+        <div class="col-md-7  col-sm-12 ic" >
+            <p class="kjl op"> <b>At present we are enlarging our network throughout India.We aim at Made in India movement to make and develop our nation indigenous</b></p>
+        </div>
+        <div class="col-md-5 col-sm-12 ic">
+            <img src="{% static 'ghar_dikhao/images/apart.jpg' %}"   width="500" height="365" class="infoimg" / style="width:100%" alt="bye">
+        </div>
+        
+    </div>
 
 {% endblock content%}
