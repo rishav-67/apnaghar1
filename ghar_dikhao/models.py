@@ -36,8 +36,10 @@ class contactmodel(models.Model):
 
 class extenduser(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    
-    phone=models.TextField(max_length=100)
-    city=models.TextField(max_length=100)
-    state=models.TextField(max_length=100)
+    first_name=models.TextField(max_length=100, default="")
+    last_name=models.TextField(max_length=100, default="")
+    email=models.TextField(max_length=100, default="")
+    phone=models.TextField(max_length=100, default="")
+    city=models.TextField(max_length=100, default="")
+    state=models.TextField(max_length=100, default="")
     
