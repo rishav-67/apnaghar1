@@ -23,6 +23,6 @@ urlpatterns = [
     path('update_post/<check>/',views.update_post,name="iskaupdate"),
     path('information/<check>',views.information,name="iskainformation"),
     path('delete_confirm/<check>',views.delete_confirm,name="iskadeleteconfirm"),
- 
+    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
    
