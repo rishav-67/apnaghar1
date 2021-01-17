@@ -3,39 +3,42 @@
 
 {% block content %}
 
-<div class="container">
-    <h3>Your Page</h3>
-     {% for mes in messages %}
-           <p  class="alert alert-{{mes.tags}} mb-5">{{mes}}</p>
-        {% endfor %}
-    <div class="row">
-        {% for fm  in obj %}
-        <div class="col-md-12 col-lg-4 col-sm-3 fgk">
-            <div class="card" style="width: 100%">
-                <img class="card-img-top" src="{{fm.img.url}}" alt="Card image cap" width=300 height=400>
-                <div class="card-body">
-                    <h5 class="card-title myText">{{fm.title}}</h5>
-                    <h5 class="card-title myText">{{fm.user}}</h5>
-                    <p class="card-text myText">{{fm.description}}</p>
-                    <p class="card-text myText">{{fm.id}}</p>
-                    <form action="{% url 'iskadeleteconfirm' fm.id %}">
-                    {% csrf_token %}
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">DELETE
-                    
-                    </button>
-                    </form>
-                    <form action="{% url 'iskaupdate' fm.id %}">
-                    {% csrf_token %}
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">EDIT
-                    
-                    </button>
-                    </form>
-                </div>
-                 <div class="bg"></div>
-            </div>
-        </div>
-        {% endfor %}
-  </div>
+
+<center><h3><b>Your Page</b></h3></center>
+{% for mes in messages %}
+    <p  class="alert alert-{{mes.tags}} mb-5">{{mes}}</p>
+{% endfor %}
+
+
+<div class="row">
+  
+  {% for fm in obj %} 
+   <div class="col-md-12 col-lg-4 col-sm-3 fgk">
+    <div class="card" style="width: 100%">
+      <img class="card-img-top" src="{{fm.img.url}}" alt="Card image cap" width="300" height="400" />
+      <div class="card-body">
+        <p><span><b>COST:-</b><b id="ji"> ₹{{fm.cost}}</b></span></p>
+        <p><span><b>State:-</b><b id="ji">{{fm.state|upper}}</b></span></p>
+        <p><span><b>Constructor:-</b><b id="ji">{{fm.user}}</b></span></p>
+        <p><span><b>Seen by:-</b><b id="ji">{{fm.user.extenduser.first_name}} {{fm.user.extenduser.last_name}}</b></span></p>
+        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
+        <form action="{% url 'iskadeleteconfirm' fm.id %}">
+            {% csrf_token %}
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">DELETE
+            </button>
+        </form>
+        <form action="{% url 'iskaupdate' fm.id %}">
+            {% csrf_token %}
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">EDIT
+            </button>
+        </form>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
 </div>
    
 {% endblock content%}
+
+
+
