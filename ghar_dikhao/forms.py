@@ -4,24 +4,24 @@ from django.contrib.auth.models import User
 from .models import advertisment,contactmodel,extenduser
 class user_signupk(UserCreationForm):
     username= forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'RISHAV'}))
-    phone= forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': '7667805324'}))
-    email = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'rishavranjan700@gmail.com'}))
-    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'RISHAV'}))
-    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'RANJAN'}))
-    
+    #phone= forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': '7667805324'}))
+    #email = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'rishavranjan700@gmail.com'}))
     password1=forms.CharField(label='psfirsebtao',widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'ENTER PASSWORD'}))
     password2=forms.CharField(label='passfirsebtao',widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'RENTER PASSWORD'}))
     class Meta:
         model = User
-        fields = ['username','email','first_name','last_name','phone',]
+        fields = ['username','password1','password2']
 
 class userprofile(forms.ModelForm):
     phone = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': '7667805324'}))
     city = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'MIRZAPUR'}))
     state = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'JHARKHAND'}))
+    email = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'rishavranjan700@gmail.com'}))
+    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'RISHAV'}))
+    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': "form-control",'placeholder': 'RANJAN'}))
     class Meta:
         model=extenduser
-        fields=['phone','city','state']
+        fields=['first_name','last_name','phone','email','city','state']
    
 
 
