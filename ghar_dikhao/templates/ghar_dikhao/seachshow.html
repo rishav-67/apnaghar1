@@ -3,27 +3,23 @@
 
 {% block content %}
 
-<div class="container">
-    <h3>Search Page</h3>
-    
-    <div class="row">
-        {% for fm  in obj %}
-        <div class="col-md-4 fgk">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{fm.img.url}}" alt="Card image cap" width=300 height=400>
-                <div class="card-body">
-                    <h5 class="card-title">{{fm.title}}</h5>
-                    <h5 class="card-title">{{fm.user}}</h5>
-                    <p class="card-text">{{fm.description}}</p>
-                    <p class="card-text">{{fm.view_count}}</p>
-                    <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary">DESCRIPTION</a>
-                </div>
-                 <div class="bg"></div>
-            </div>
-        </div>
-        {% endfor %}
-  </div>
-</div>
-   
+<h1>Search Page {{obj.user}}</h1>
+<div class="row">
+  
+  {% for fm in obj %} 
+   <div class="col-md-12 col-lg-4 col-sm-3 fgk">
+    <div class="card" style="width: 100%">
+      <img class="card-img-top" src="{{fm.img.url}}" alt="Card image cap" width="300" height="400" />
+      <div class="card-body">
+        <p><span><b>COST:-</b><b id="ji"> ₹{{fm.cost}}</b></span></p>
+        <p><span><b>State:-</b><b id="ji">{{fm.state|upper}}</b></span></p>
+        <p><span><b>Constructor:-</b><b id="ji">{{fm.user.extenduser.first_name}} {{fm.user.extenduser.last_name}}</b></span></p>
+        <p><span><b>Seen by:-</b><b id="ji">{{fm.view_count}}</b></span></p>
 
+        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content%}
