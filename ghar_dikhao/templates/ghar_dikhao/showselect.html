@@ -5,51 +5,49 @@
 
 
 
-<form action="{% url 'iskarecent' tit %}">
+<div class="row">
+  <div class="col-md-4 ">
+    <form action="{% url 'iskarecent' tit %}">
     {% csrf_token %}
     <center><button class="btn btn-outline-success my-2 my-sm-0" type="submit">RECENT</center>
       
     </button>
   </form>
+  </div>
+  <div class="col-md-4 ">
+    <form action="{% url 'iskaoldest' tit %}">
+        {% csrf_token %}
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">OLDEST</button>
+        
+    </form>
+  </div>
+  <div class="col-md-4">
+    <form action="{% url 'iskashuffle' tit %}">
+        {% csrf_token %}
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">RANDOM</button>
+       
+    </form>
+  </div>
+</div>
 
-<form action="{% url 'iskaoldest' tit %}">
-    {% csrf_token %}
-    <center><button class="btn btn-outline-success my-2 my-sm-0" type="submit">OLDEST</center>
-      
-    </button>
-  </form>
-
-
-<form action="{% url 'iskashuffle' tit %}">
-    {% csrf_token %}
-    <center><button class="btn btn-outline-success my-2 my-sm-0" type="submit">SHUFFLE</center>
-      
-    </button>
-  </form>
+<h1><center>{{tit}}</center></h1>
 <div class="row">
-    <h1><center>{{tit}}</center></h1>
+  
   {% for fm in form %} 
-  <div class="col-md-4 fgk">
-    <div class="card" style="width: 18rem">
-      <img
-        class="card-img-top"
-        src="{{fm.img.url}}"
-        alt="Card image cap"
-        width="300"
-        height="400"
-      />
+   <div class="col-md-12 col-lg-4 col-sm-3 fgk">
+    <div class="card" style="width: 100%">
+      <img class="card-img-top" src="{{fm.img.url}}" alt="Card image cap" width="300" height="400" />
       <div class="card-body">
-        <h5 class="card-title">{{fm.title}}</h5>
-        <h5 class="card-title">{{fm.user}}</h5>
-        <p class="card-text">{{fm.description}}</p>
-        <p class="card-text">{{fm.category}}</p>
-        <p class="card-text">{{fm.view_count}}</p>
-        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary">DESCRIPTION</a>
+        <p><span><b>COST:-</b><b id="ji"> ₹{{fm.cost}}</b></span></p>
+        <p><span><b>State:-</b><b id="ji">{{fm.state|upper}}</b></span></p>
+        <p><span><b>Constructor:-</b><b id="ji">{{fm.user.extenduser.first_name}} {{fm.user.extenduser.last_name}}</b></span></p>
+        <p><span><b>Seen by:-</b><b id="ji">{{fm.view_count}}</b></span></p>
+        <p><span><b>ID:-</b><b id="ji">{{fm.id}}</b></span></p>
+
+        <a href="{% url 'iskainformation' fm.id %}" class="btn btn-primary formButtonfront">DESCRIPTION</a>
       </div>
     </div>
-  </div>
-
-  {% endfor %}
-    
+    </div>
+    {% endfor %}
 </div>
 {% endblock content%}
