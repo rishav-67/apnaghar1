@@ -213,8 +213,9 @@ def update_post(request,check):
 
 def information(request,check):
 
-    form=advertisment.objects.get(pk=check).update(view_count=F('views_count') + 1)
-    
+    form=advertisment.objects.get(pk=check)
+    form.view_count=F('view_count') + 1
+    form.save()
     
     form=advertisment.objects.get(pk=check)
     return render(request,'ghar_dikhao/information.html',{'form':form})
