@@ -8,6 +8,7 @@ from .forms import shows,contactshows,userprofile
 from .models import advertisment,User,extenduser
 import random
 from django.contrib.auth.decorators import login_required
+from django.db.models import F
 # Create your views here.
 def home(request):
     form=advertisment.objects.all()
@@ -212,10 +213,8 @@ def update_post(request,check):
 
 def information(request,check):
 
-    form=advertisment.objects.get(pk=check)
-    print(form)
-    form.view_count=form.view_count+1
-    form.save()
+    form=advertisment.objects.get(pk=check).update(view_count=F('views_count') + 1)
+    
     
     form=advertisment.objects.get(pk=check)
     return render(request,'ghar_dikhao/information.html',{'form':form})
